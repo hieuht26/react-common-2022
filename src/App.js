@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import AuthProvider from 'auth/AuthProvider';
+import React from 'react';
+import ProtectedRoute from 'auth/ProtectedRoute';
+
+const DemoPage = React.lazy(() => import("./pages/demoPage/DemoPage"));
+const DemoPageAuth = React.lazy(() => import("./pages/demoPage/DemoPageAuth"));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+        <Routes>
+          <Route path="demo" element={<DemoPage />} />
+          <Route path="demo-auth" element={
+            <ProtectedRoute>
+              <DemoPageAuth />
+            </ProtectedRoute>
+          } />
+        </Routes>
+      </AuthProvider>
     </div>
   );
 }
 
-export default App;
+const queryClient = new QueryClient();
+
+const AppContainer = () => (
+  <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+  </BrowserRouter>
+);
+
+export default AppContainer;
