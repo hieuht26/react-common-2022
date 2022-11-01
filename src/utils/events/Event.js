@@ -11,7 +11,7 @@ class Events {
 
     // Provide handle back for removal of topic
     return {
-      remove: function() {
+      remove: function () {
         delete topics[topic][index];
       }
     };
@@ -22,15 +22,14 @@ class Events {
     if (!hOP.call(topics, topic)) return;
 
     // Cycle through topics queue, fire!
-    topics[topic].forEach(function(item) {
-        item(info !== undefined ? info : {});
+    topics[topic].forEach(function (item) {
+      item(info !== undefined ? info : {});
     });
   }
 
-unsubscribe(topic) {
-  delete topics[topic];
-}
-
+  unsubscribe(topic) {
+    delete topics[topic];
+  }
 }
 
 const EventObj = new Events();

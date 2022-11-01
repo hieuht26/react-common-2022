@@ -1,0 +1,11 @@
+/node_modules
+/.vscode
+/config
+/public
+/scripts
+
+# Ignore artifacts:
+/build
+/coverage
+
+*.json

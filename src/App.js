@@ -5,8 +5,10 @@ import AuthProvider from 'auth/AuthProvider';
 import React from 'react';
 import ProtectedRoute from 'auth/ProtectedRoute';
 
-const DemoPage = React.lazy(() => import("./pages/demoPage/DemoPage"));
-const DemoPageAuth = React.lazy(() => import("./pages/demoPage/DemoPageAuth"));
+import 'antd/dist/antd.min.css';
+
+const DemoPage = React.lazy(() => import('./pages/demoPage/DemoPage'));
+const DemoPageAuth = React.lazy(() => import('./pages/demoPage/DemoPageAuth'));
 
 function App() {
   return (
@@ -14,11 +16,14 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="demo" element={<DemoPage />} />
-          <Route path="demo-auth" element={
-            <ProtectedRoute>
-              <DemoPageAuth />
-            </ProtectedRoute>
-          } />
+          <Route
+            path="demo-auth"
+            element={
+              <ProtectedRoute>
+                <DemoPageAuth />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </AuthProvider>
     </div>
