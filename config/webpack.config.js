@@ -1,5 +1,7 @@
 'use strict';
 
+import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
+
 const fs = require('fs');
 const path = require('path');
 const webpack = require('webpack');
@@ -334,6 +336,7 @@ module.exports = function (webpackEnv) {
           babelRuntimeEntryHelpers,
           babelRuntimeRegenerator,
         ]),
+        new AntdDayjsWebpackPlugin()
       ],
     },
     module: {

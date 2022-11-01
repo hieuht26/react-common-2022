@@ -5,6 +5,8 @@ import AuthProvider from 'auth/AuthProvider';
 import React from 'react';
 import ProtectedRoute from 'auth/ProtectedRoute';
 
+import 'antd/dist/antd.min.css';
+
 const DemoPage = React.lazy(() => import("./pages/demoPage/DemoPage"));
 const DemoPageAuth = React.lazy(() => import("./pages/demoPage/DemoPageAuth"));
 
