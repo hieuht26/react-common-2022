@@ -2,3 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx lint-staged
+
+# https://blog.nerdjfpb.com/how-to-add-eslint-prettier-and-husky-git-hook-in-react-js-2022/
