@@ -1,3 +1,4 @@
 {
-  "eslint.nodeEnv": "development"
+  "eslint.nodeEnv": "development",
+  "css.lint.unknownAtRules": "ignore"
 }
