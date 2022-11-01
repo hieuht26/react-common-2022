@@ -1,6 +1,6 @@
 'use strict';
 
-import AntdDayjsWebpackPlugin from 'antd-dayjs-webpack-plugin';
+const AntdDayjsWebpackPlugin = require('antd-dayjs-webpack-plugin');
 
 const fs = require('fs');
 const path = require('path');
@@ -336,7 +336,6 @@ module.exports = function (webpackEnv) {
           babelRuntimeEntryHelpers,
           babelRuntimeRegenerator,
         ]),
-        new AntdDayjsWebpackPlugin()
       ],
     },
     module: {
@@ -750,6 +749,7 @@ module.exports = function (webpackEnv) {
             },
           },
         }),
+      new AntdDayjsWebpackPlugin()
     ].filter(Boolean),
     // Turn off performance processing because we utilize
     // our own hints via the FileSizeReporter
